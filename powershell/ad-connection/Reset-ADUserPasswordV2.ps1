@@ -1,3 +1,16 @@
+# ==============================================================================
+# Active Directory Password Reset Script V2
+# ==============================================================================
+# Author: Sushanth varma
+# Created: 2024
+# ==============================================================================
+# This script provides functionality to:
+# 1. Reset AD user passwords via LDAP
+# 2. Generate complex passwords meeting AD requirements
+# 3. Test AD connectivity
+# 4. Retrieve password change timestamps
+# ==============================================================================
+
 # Global AD Configuration
 $Global:ADConfig = @{
     Server = "172.16.30.142"
@@ -6,7 +19,7 @@ $Global:ADConfig = @{
     AdminPassword = "Passw0rd!"
 }
 
-# Function to test AD connectivity
+# Test AD connectivity
 function Test-ADConnection {
     try {
         Write-Host "`nTesting AD Connection:" -ForegroundColor Yellow
@@ -41,7 +54,7 @@ function Test-ADConnection {
     }
 }
 
-# Function to generate a random password
+# Generate a random password
 function Generate-RandomPassword {
     param (
         [int]$Length = 7
